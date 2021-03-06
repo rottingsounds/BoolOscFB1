@@ -28,7 +28,7 @@ public:
     void pitchWheelMoved(int newPitchWheelValue) override;
     
     void prepareToPlay(double sampleRate, int samplesPerBlock, int numOutputChannels);
-    void releaseResources() {};
+    void releaseResources() {}
     
     void renderNextBlock(juce::AudioBuffer<float> &outputBuffer, int startSample, int numSamples) override;
     

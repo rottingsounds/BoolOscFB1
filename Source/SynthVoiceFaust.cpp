@@ -40,14 +40,14 @@ void SynthVoiceFaust::pitchWheelMoved(int newPitchWheelValue) {
 void SynthVoiceFaust::prepareToPlay(double sampleRate, int samplesPerBlock, int numOutputChannels) {
     
     // SPEC
-    spec.maximumBlockSize = samplesPerBlock;
+    spec.maximumBlockSize = (juce::uint32) samplesPerBlock;
     spec.sampleRate = sampleRate;
-    spec.numChannels = numOutputChannels;
+    spec.numChannels = (juce::uint32) numOutputChannels;
     
     
     // FAUST {{{
     fDSP = std::make_unique <mydsp> (); // FAUST dsp object
-    fDSP->init (sampleRate); // set samplerate
+    fDSP->init ((int) sampleRate); // set samplerate
     fDSP->buildUserInterface (&fUI);
     // FAUST }}}
         
@@ -67,12 +67,12 @@ void SynthVoiceFaust::renderNextBlock(juce::AudioBuffer<float> &outputBuffer, in
         
     
     // FAUST {{{
-    fDSP->compute(outputBuffer.getNumSamples(),NULL,outputBuffer.getArrayOfWritePointers());
+    fDSP->compute(outputBuffer.getNumSamples(), nullptr, outputBuffer.getArrayOfWritePointers());
     // FAUST }}}
 
     // ADSR
     // "plain juce"-style of applying efx to a vbuffer;
-    adsr.applyEnvelopeToBuffer(outputBuffer, startSample, numSamples);
+    adsr.applyEnvelopeToBuffer( outputBuffer, startSample, numSamples );
 }
 
 
@@ -81,38 +81,38 @@ void SynthVoiceFaust::renderNextBlock(juce::AudioBuffer<float> &outputBuffer, in
 // FAUST {{{
 void SynthVoiceFaust::setMod1(float val) {
     fUI.setParamValue("mod1", val);
-};
+}
 void SynthVoiceFaust::setMod2(float val) {
     fUI.setParamValue("mod2", val);
-};
+}
 void SynthVoiceFaust::setBias1(float val) {
     fUI.setParamValue("bias1", val);
-};
+}
 void SynthVoiceFaust::setBias2(float val) {
     fUI.setParamValue("bias2", val);
-};
+}
 void SynthVoiceFaust::setLeak(float val) {
     fUI.setParamValue("leak", val);
-};
+}
 void SynthVoiceFaust::setDistort(float val) {
     fUI.setParamValue("distort", val);
-};
+}
 void SynthVoiceFaust::setAmp(float val) {
     fUI.setParamValue("amp", val);
-};
+}
 void SynthVoiceFaust::setWidth(float val) {
     fUI.setParamValue("width", val);
-};
+}
 void SynthVoiceFaust::setRot(float val) {
     fUI.setParamValue("rot", val);
-};
+}
 void SynthVoiceFaust::setLpfreq(float val) {
     fUI.setParamValue("lpfreq", val);
-};
+}
 // FAUST }}}
 
 std::unique_ptr<juce::NormalisableRange<float>> SynthVoiceFaust::getRangeForParam(juce::String& name) {
     auto rangePtr = std::make_unique<juce::NormalisableRange<float>>(0, 1, 0, 2);
     
     return rangePtr;
-};
+}
