@@ -6,7 +6,6 @@
     <GROUP id="{EBE0A2C2-443F-813D-1B03-0AADA0FF1404}" name="Source">
       <FILE id="h4wpPk" name="BoolOscFB1-vec.h" compile="0" resource="0"
             file="Source/BoolOscFB1-vec.h"/>
-      <FILE id="WHhMA6" name="BoolOscFB1.h" compile="0" resource="0" file="Source/BoolOscFB1.h"/>
       <FILE id="yxUMEd" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="LkrPaD" name="PluginProcessor.h" compile="0" resource="0"

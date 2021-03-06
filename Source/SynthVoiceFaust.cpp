@@ -64,6 +64,7 @@ void SynthVoiceFaust::renderNextBlock(juce::AudioBuffer<float> &outputBuffer, in
     jassert (isPrepared);
     
     juce::dsp::AudioBlock<float> audioBlock {outputBuffer};
+        
     
     // FAUST {{{
     fDSP->compute(outputBuffer.getNumSamples(),NULL,outputBuffer.getArrayOfWritePointers());
