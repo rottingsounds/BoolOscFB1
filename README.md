@@ -1,19 +1,22 @@
 # BoolOscFB1
-*[Till Bovermann](http://tai-studio.org) for the [rottingsounds project](http://rottingsounds.org)*
+*[Till Bovermann](http://tai-studio.org) for the [rottingsounds project](http://rottingsounds.org)*.
 
 A 1bit dsp audio plugin based on JUCE and faust
 
 ## Requirements
 
-+ [juce 6](https://juce.com/)
-+ projucer (part of juce)
++ [juce 6](https://juce.com/) installed as a package on your system. See `CmakeLists.txt` and JUCE's own [CMake API howto](https://github.com/juce-framework/JUCE/blob/master/docs/CMake%20API.md#using-find_package) for details.
++ [cmake](cmake.org)
 + ([faust](http://faust.grame.fr/), if you want to change the dsp engine)
 
 ## Compile
 
-1. Open your IDE of choice through the included projucer file. Yuo may want to add the IDE of choice to the targets (currently only OSX/XCode)
-2. compile
-3. use.
+```sh
+cmake -Bbuild
+cmake --build build
+```
+
+configures and builds in `build` directory. 
 
 ## Change the dsp
 
